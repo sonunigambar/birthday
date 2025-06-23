@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle, #ffe0e0, #ffc1c1, #ffb1b1);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+      text-align: center;
+      color: #fff;
+    }
+
+    .container {
+      padding: 50px 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    img.photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      box-shadow: 0 0 20px #ff69b4;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 3.5em;
+      color: #ff4081;
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff4081;
+      animation: glow 2s infinite alternate;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin: 10px 0;
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 700px;
+      margin: 20px auto;
+      color: #fffefed0;
+    }
+
+    .cake {
+      font-size: 80px;
+      animation: bounce 1.5s infinite;
+      margin-bottom: 20px;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 1em;
+      color: #ffeeee;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4;
+      }
+      to {
+        text-shadow: 0 0 30px #fff, 0 0 50px #ff4081;
+      }
+    }
+
+    /* BIG Firework */
+    .firework {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      background: transparent;
+      border-radius: 50%;
+      box-shadow: 0 0 20px #fff;
+      animation: explode 1.2s ease-out forwards;
+      z-index: 1;
+    }
+
+    @keyframes explode {
+      0% {
+        transform: scale(0.5) translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(2) translateY(-300px) rotate(720deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img class="photo" src="./pinky.jpg" alt="Birthday Person">
+    <div class="cake">🎂</div>
+    <h1>Happy Birthday, Pinky! 🎉</h1>
+    <h2>Wishing you a day full of sparkle and love!</h2>
+    <p>
+      May your birthday be as bright, beautiful, and full of life as you are. 
+      Keep smiling, keep shining, and keep inspiring everyone around you.
+    </p>
+    <div class="footer">— From Sonu 💖</div>
+  </div>
+
+  <script>
+    // Bigger colorful fireworks
+    function createFirework() {
+      const fw = document.createElement('div');
+      fw.classList.add('firework');
+      fw.style.left = Math.random() * 100 + 'vw';
+      fw.style.top = (Math.random() * 40 + 20) + 'vh';
+      fw.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
+      document.body.appendChild(fw);
+
+      setTimeout(() => fw.remove(), 1200);
+    }
+
+    setInterval(createFirework, 150);
+  </script>
+
+</body>
+</html>
